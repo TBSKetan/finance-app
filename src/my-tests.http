@@ -1,0 +1,19 @@
+@hostname = http://localhost:8101
+
+get {{hostname}}
+
+get http://localhost:8101
+
+###
+post http://localhost:8101
+Content-Type: application/json
+
+{
+  "message": "Hello Test"
+}
+
+###
+get http://localhost:8101/auth-endpoint
+Authorization: my-api-key-123
+
+
