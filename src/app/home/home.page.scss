@@ -9,6 +9,9 @@ ion-header {
 }
 
 ion-content{
+  * {
+    font-family: lato;
+  }
   .main-header{
     height: 45vh;
     width: 150%;
@@ -18,4 +21,29 @@ ion-content{
     margin-left:  -15vh;
     margin-top: -60px;
   }
+  ion-grid{
+    width:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(10vh);
+    padding-bottom: 8vh;
+      ion-row{
+       ion-col{
+        ion-label{
+          ion-note{
+            font-size: 0.7rem;
+          }
+          ion-chip{
+            ion-label{
+              font-size: 1.4 rem ;
+              font-weight: bold;
+              letter-spacing: 0.5px;
+            }
+          }
+        }
+       }
+      }
+  }
+
 }
