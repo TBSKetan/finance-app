@@ -3,6 +3,6 @@
 
 ## ScreenShots
 
-## Dashbord 1 
+## Dashbord Designs
 <img height="480px" src="Screenshot/Dashbord 1.png">
 <br>
