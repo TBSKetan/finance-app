@@ -5,7 +5,7 @@
       <ion-icon slot="icon-only" name="menu"></ion-icon>
     </ion-button>
     <ion-avatar slot="end">
-    <img src="assets/icon/icons/profile.png"/>
+    <img src="assets/icon/profile.png"/>
     </ion-avatar>
   </ion-item>
 </ion-header>
@@ -17,18 +17,67 @@
     <ion-row>
       <ion-col size="6">
         <ion-label>
-          <ion-note color="light">
+          <ion-note color="light" class="ion-margin-start">
             CARD BALANCE
           </ion-note>
           <p>
-            <ion-chip color="light">
-              <ion-label class="ion-text-wrap">
-                Rs. 123456
+            <ion-chip>
+              <ion-label color="light" class="ion-text-wrap">
+                <b>₹ 123456</b>
               </ion-label>
             </ion-chip>
           </p>
         </ion-label>
       </ion-col>
+      <ion-col size="6" class="ion-text-end">
+        <ion-button color="light" size="small">
+          <ion-text color="primary">Top Up</ion-text>
+          <ion-icon name="add" color="primary" slot="end"></ion-icon>
+        </ion-button>
+      </ion-col>
     </ion-row>
+    <ion-row class="ion-margin-horizontal ion-margin-top">
+      <ion-col color="light">
+        <ion-label color="light">
+            <b>All Features</b>
+        </ion-label>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="ion-margin-horizontal ion-margin-top">
+      <ion-col *ngFor="let item of features" size="6">
+        <ion-card class="ion-text-center">
+          <ion-card-header>
+            <div align="center">
+              <!-- set dynamic color set here -->
+              <ion-thumbnail [style.background]="item?.background">
+                <img [src]="item?.src"/>
+              </ion-thumbnail>
+            </div>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label color="dark">{{item?.name}}</ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+
+    <ion-list>
+      <ion-list-header>
+        <ion-label>RECENT TRANSACTIONS </ion-label>
+      </ion-list-header>
+      <ion-item lines="none" *ngFor="let item of transaction">
+        <!-- Set static icons -->
+        <ion-icon slot="start" name="cash" color="primary"></ion-icon>
+        <ion-label class="ion-text-wrap"size="large">
+          <b>{{item.vendor}}</b>
+          <p>{{item.time}}</p>
+        </ion-label>
+          <!-- static data set -->
+        <!-- <ion-text slot="end" color="success"><b>₹ {{item.amount}}</b></ion-text> -->
+        <!-- Set data dynamic -->
+        <ion-text slot="end" [color]="item?.amount > 0 ? 'success' : 'danger' ">₹ {{item.amount}}</ion-text>
+      </ion-item>
+    </ion-list>
   </ion-grid>
 </ion-content>
